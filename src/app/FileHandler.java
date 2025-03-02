@@ -8,13 +8,11 @@ import java.io.IOException;
 public class FileHandler {
 
     private final static String BASE_PATH = "files/";
-
-    public String writeFile(String fileContent) {
-        String fileName;
-        try (FileWriter fw = new FileWriter(new File(fileName + ".txt")) {
-                fw.write(fileContent);
-                return"Success.";
-        } catch(Exception e) {
+    public String writeFile(String fileName, String fileContent) {
+        try (FileWriter fw = new FileWriter(BASE_PATH + fileName + ".txt")) {
+            fw.write(fileContent);
+            return "Success.";
+        } catch (Exception e) {
             return e.getMessage();
         }
     }
